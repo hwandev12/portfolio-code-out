@@ -1,14 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class AboutMe(models.Model):
+class User(AbstractUser):
+    pass
+class Home(models.Model):
     class Meta:
-        verbose_name = 'About Me'
-        verbose_name_plural = "About Me Page"
+        verbose_name = 'Home'
+        verbose_name_plural = "Home Page"
     
-    name = models.CharField(max_length=100)
-    website = models.CharField(max_length=100)
-    phone = models.IntegerField(default=10)
-    text = models.CharField(max_length=200)
+    # for main DISPLAY page
+    blog_heading = models.CharField(max_length=100)
+    blog_subheading = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.name
+        return self.blog_heading
