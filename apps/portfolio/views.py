@@ -1,5 +1,9 @@
+from multiprocessing import context
 from django.shortcuts import render
+from . import models
 
 def home(request):
-    print("Djang rest world")
-    return render(request, 'pages/home.html')
+    homeContents = models.Home.objects.all()
+    posts = models.Post.objects.all()
+    context = {"homeContents": homeContents, "posts": posts}
+    return render(request, 'pages/home.html', context)
