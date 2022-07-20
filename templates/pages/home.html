@@ -25,7 +25,7 @@
       {% for p in posts %}
       <!-- Post preview-->
       <div class="post-preview">
-        <a href="#">
+        <a href="{% url 'blog:post' p.pk %}">
           <h2 class="post-title">
            {{ p.main_heading }}
           </h2>

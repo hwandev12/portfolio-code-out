@@ -29,5 +29,14 @@ class Post(models.Model):
     sub_heading = models.CharField(max_length=150)
     date_post = models.CharField(max_length=100)
     
+    # for detail posts
+    image = models.ImageField()
+    post_text_1 = models.TextField()
+    post_heading_1 = models.CharField(max_length=100)
+    post_text_2 = models.TextField()
+    muted_text_1 = models.TextField()
+    post_heading_2 = models.CharField(max_length=100)
+    post_text_3 = models.TextField()
+    
     def __str__(self):
         return self.main_heading
