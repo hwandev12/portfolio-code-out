@@ -22,6 +22,7 @@ def category(request):
     }
     return render(request, 'pages/category_cards.html', context)
 
+# for actual category
 def category_pages(request):
    
     category = request.GET.get('category')
@@ -38,3 +39,4 @@ def category_pages(request):
        'categories': categories
     }
     return render(request, 'pages/category_pages.html', context)
+

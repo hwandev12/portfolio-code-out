@@ -60,6 +60,12 @@
   @media(min-width: 992px) {
     .card_big {
       margin-left: 100px !important;
+      
+    }
+  }
+  @media(max-length: 500px) {
+    .card_big {
+      margin-left: 100px !important;
     }
   }
   .card_big {
@@ -104,7 +110,7 @@
     </div>
   </div>
 </header>
-<div class="col-md-10 card_big">
+<div class="col-md-10 card_big" style="transform: translateX(27px);">
   <div class="row">
     {% for cat in categories %}
     <div class="col-xl-3 col-lg-6 card_bg mb-2">
