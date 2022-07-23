@@ -16,4 +16,25 @@ def post(request, pk):
 
 # for category page cards
 def category(request):
-    return render(request, 'pages/category_cards.html')
+    categories = models.Category.objects.all()
+    context = {
+        "categories": categories
+    }
+    return render(request, 'pages/category_cards.html', context)
+
+def category_pages(request):
+   
+    category = request.GET.get('category')
+    
+    if category == None:
+        posts = models.Post.objects.all()
+    else:
+        posts = models.Post.objects.filter(category__name=category)
+
+
+    categories = models.Category.objects.all()
+    context = {
+       "posts": posts,
+       'categories': categories
+    }
+    return render(request, 'pages/category_pages.html', context)

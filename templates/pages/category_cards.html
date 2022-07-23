@@ -13,7 +13,7 @@
       0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
   }
   h1, h2 {
-    font-size: 20px !important;
+    font-size: 17px !important;
   }
   h5 {
     font-size: 20px !important;
@@ -66,21 +66,21 @@
     margin-top: 100px !important;
   }
   .card_link {
-    color: white;
+    color: #fff;
     text-decoration: none;
   }
   .card_link:hover {
     color: white !important;
   }
   .card_bg  {
-    width: 300px !important;
+    width: 200px !important;
     height: 110px !important;
   }
   .child {
     width: 100% !important;
     height: 100% !important;
-    background-color: black !important;
-    background-image: url({% static 'assets/img/about-bg.jpg' %});
+    background-color: #555 !important;
+    background-blend-mode: multiply;
     background-position: center !important;
     background-size: 100%;
     transition: all .5s !important;
@@ -105,17 +105,19 @@
 </header>
 <div class="col-md-10 card_big">
   <div class="row">
+    {% for cat in categories %}
     <div class="col-xl-3 col-lg-6 card_bg mb-2">
-      <div class="card child">
-        <a class="card_link" href="#">
+      <div class="card child" style="background-image: url({{ cat.image.url }});">
+        <a class="card_link" href="{% url 'blog:category_page' %}?category={{ cat.name }}">
           <div class="card-statistic-3 p-4">
             <div class="row align-items-center mb-2 d-flex">
-              <h2 class="text-center pt-3">Scientists</h2>
+              <h2 class="text-center pt-3">{{ cat.name }}</h2>
             </div>
           </div>
         </a>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}
