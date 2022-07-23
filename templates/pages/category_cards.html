@@ -18,25 +18,6 @@
   h5 {
     font-size: 20px !important;
   }
-  .l-bg-cherry {
-    background: linear-gradient(to right, #493240, #f09) !important;
-    color: #fff;
-  }
-
-  .l-bg-blue-dark {
-    background: linear-gradient(to right, #373b44, #4286f4) !important;
-    color: #fff;
-  }
-
-  .l-bg-green-dark {
-    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
-    color: #fff;
-  }
-
-  .l-bg-orange-dark {
-    background: linear-gradient(to right, #a86008, #ffba56) !important;
-    color: #fff;
-  }
 
   .card .card-statistic-3 .card-icon-large .fas,
   .card .card-statistic-3 .card-icon-large .far,
@@ -92,20 +73,21 @@
     color: white !important;
   }
   .card_bg  {
-    width: 300px;
-    height: 110px;
+    width: 300px !important;
+    height: 110px !important;
   }
-  .card {
+  .child {
     width: 100% !important;
     height: 100% !important;
     background-color: black !important;
+    background-image: url({% static 'assets/img/about-bg.jpg' %});
     background-position: center !important;
-    background-size: cover !important;
+    background-size: 100%;
     transition: all .5s !important;
   }
   .card_bg:hover .child,
   .card_bg:focus .child {
-  transform: scale(1.05) !important;
+  background-size: 120%;
   transition: all .5s !important;
 }
 </style>
@@ -124,7 +106,7 @@
 <div class="col-md-10 card_big">
   <div class="row">
     <div class="col-xl-3 col-lg-6 card_bg mb-2">
-      <div class="card child" style="background-image: url({% static 'assets/img/about-bg.jpg' %});">
+      <div class="card child">
         <a class="card_link" href="#">
           <div class="card-statistic-3 p-4">
             <div class="row align-items-center mb-2 d-flex">
