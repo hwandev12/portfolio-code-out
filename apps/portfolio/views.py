@@ -13,3 +13,7 @@ def post(request, pk):
     post = models.Post.objects.get(id=pk)
     context = {"post": post}
     return render(request, 'pages/post.html', context)
+
+# for category page cards
+def category(request):
+    return render(request, 'pages/category_cards.html')

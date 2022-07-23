@@ -1,0 +1,130 @@
+{% extends 'layouts/base.html' %} {% block title %}categories{% endblock title %} {% block content %}
+{% load static %}
+<style>
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+      0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+      0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+      0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+  }
+  h1, h2 {
+    font-size: 20px !important;
+  }
+  h5 {
+    font-size: 20px !important;
+  }
+  .l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+  }
+
+  .l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+  }
+
+  .l-bg-green-dark {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+    color: #fff;
+  }
+
+  .l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+  }
+
+  .card .card-statistic-3 .card-icon-large .fas,
+  .card .card-statistic-3 .card-icon-large .far,
+  .card .card-statistic-3 .card-icon-large .fab,
+  .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px !important;
+  }
+
+  .card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+    font-size: 100px;
+  }
+
+  .l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+  }
+
+  .l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+  }
+
+  .l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+  }
+
+  .l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+  }
+  .card_bg {
+    cursor: pointer;
+    transition: 0.5s all ease;
+  }
+  .card_bg:hover {
+    transform: scale(1.03);
+    transition: 0.5s all ease;
+  }
+  @media(min-width: 992px) {
+    nav {
+      background-color: #444 !important;
+    }
+    .card_big {
+      margin-left: 100px !important;
+    }
+  }
+  .card_big {
+    margin-top: 100px !important;
+  }
+  .card_link {
+    color: white;
+    text-decoration: none;
+  }
+  .card_link:hover {
+    color: white !important;
+  }
+</style>
+<div class="col-md-10 card_big">
+  <div class="row">
+    <div class="col-xl-3 col-lg-6 card_bg">
+      <div class="card l-bg-cherry">
+        <a class="card_link" href="#">
+          <div class="card-statistic-3 p-4">
+            <div class="row align-items-center mb-2 d-flex">
+              <h2 class="text-center pt-3">Scientists</h2>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 card_bg">
+      <div class="card l-bg-blue-dark">
+        <div class="card-statistic-3 p-4">
+          <div class="row align-items-center mb-2 d-flex">
+            <h2 class="text-center pt-3">Statistics</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
