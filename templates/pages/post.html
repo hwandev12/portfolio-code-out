@@ -1,4 +1,5 @@
 {% extends 'layouts/base.html' %} {% block title %}posts{% endblock title %}
+{% load static %}
 {% block content %}
 <header class="masthead" style="background-image: url({{ post.image.url }})">
   <div class="container position-relative px-4 px-lg-5">
@@ -35,7 +36,7 @@
         <a href="#!"
           ><img
             class="img-fluid"
-            src="assets/img/post-sample-image.jpg"
+            src="{% static 'assets/img/post-sample-image.jpg' %}"
             alt="..."
         /></a>
         <span class="caption text-muted"

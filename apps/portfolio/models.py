@@ -30,13 +30,15 @@ class Post(models.Model):
     date_post = models.CharField(max_length=100)
     
     # for detail posts
-    image = models.ImageField()
     post_text_1 = models.TextField()
+    image_2 = models.ImageField(blank=True)
     post_heading_1 = models.CharField(max_length=100)
     post_text_2 = models.TextField()
     muted_text_1 = models.TextField()
+    image_3 = models.ImageField(blank=True)
     post_heading_2 = models.CharField(max_length=100)
     post_text_3 = models.TextField()
+    image = models.ImageField(blank=True)
     
     def __str__(self):
         return self.main_heading
