@@ -40,5 +40,19 @@ class Post(models.Model):
     post_text_3 = models.TextField()
     image = models.ImageField(blank=True)
     
+    # Category
+    category = models.ForeignKey("Category", blank=True, null=True, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.main_heading
+    
+# Category model for posts
+class Category(models.Model):
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Category Section"
+        
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name

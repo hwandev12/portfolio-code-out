@@ -76,18 +76,7 @@
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
   }
-  .card_bg {
-    cursor: pointer;
-    transition: 0.5s all ease;
-  }
-  .card_bg:hover {
-    transform: scale(1.03);
-    transition: 0.5s all ease;
-  }
   @media(min-width: 992px) {
-    nav {
-      background-color: #444 !important;
-    }
     .card_big {
       margin-left: 100px !important;
     }
@@ -102,11 +91,40 @@
   .card_link:hover {
     color: white !important;
   }
+  .card_bg  {
+    width: 300px;
+    height: 110px;
+  }
+  .card {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: black !important;
+    background-position: center !important;
+    background-size: cover !important;
+    transition: all .5s !important;
+  }
+  .card_bg:hover .child,
+  .card_bg:focus .child {
+  transform: scale(1.05) !important;
+  transition: all .5s !important;
+}
 </style>
+<header class="masthead" style="background-image: url({% static 'assets/img/about-bg.jpg' %})">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1 style="font-size: 50px">{{ post.main_heading }}</h1>
+          <span class="subheading">{{ post.sub_heading }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 <div class="col-md-10 card_big">
   <div class="row">
-    <div class="col-xl-3 col-lg-6 card_bg">
-      <div class="card l-bg-cherry">
+    <div class="col-xl-3 col-lg-6 card_bg mb-2">
+      <div class="card child" style="background-image: url({% static 'assets/img/about-bg.jpg' %});">
         <a class="card_link" href="#">
           <div class="card-statistic-3 p-4">
             <div class="row align-items-center mb-2 d-flex">
@@ -114,15 +132,6 @@
             </div>
           </div>
         </a>
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 card_bg">
-      <div class="card l-bg-blue-dark">
-        <div class="card-statistic-3 p-4">
-          <div class="row align-items-center mb-2 d-flex">
-            <h2 class="text-center pt-3">Statistics</h2>
-          </div>
-        </div>
       </div>
     </div>
   </div>
