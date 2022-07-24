@@ -312,17 +312,14 @@ a, a:hover {
         <h5 style="transform: translateX(5px);">{{ post.category }}</h5>
         <h1 style="transform: translateX(5px);" class="postcard__title blue"><a href="#">{{ post.post_heading_1 }}</a></h1>
         <div class="postcard__subtitle small">
-          <time datetime="2020-05-25 12:00:00">
-            <i class="fas fa-calendar-alt mr-2"></i>{{ post.date_post }}
-          </time>
         </div>
         <div class="postcard__bar"></div>
         <div class="postcard__preview-txt">
           {{ post.post_text_1 }}
         </div>
         <ul class="postcard__tagbox">
-          <li class="tag__item"><i class="fas fa-tag mr-2"></i>Article</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>10min</li>
+          <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ post.name_blog }}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>{{ post.min_read }}min</li>
           <li class="tag__item play blue">
             <a href="{% url 'blog:post' post.pk %}"></i>Read more..</a>
           </li>

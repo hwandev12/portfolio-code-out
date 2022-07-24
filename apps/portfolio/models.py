@@ -43,6 +43,10 @@ class Post(models.Model):
     # Category
     category = models.ForeignKey("Category", blank=True, null=True, on_delete=models.CASCADE)
     
+    # for last tags
+    name_blog = models.CharField(max_length=60)
+    min_read = models.IntegerField(default=5)
+    
     def __str__(self):
         return self.main_heading
     
