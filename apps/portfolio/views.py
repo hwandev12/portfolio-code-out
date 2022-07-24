@@ -4,7 +4,8 @@ from . import models
 
 def home(request):
     homeContents = models.Home.objects.all()
-    posts = models.Post.objects.all()
+    # It is how we limit to get the data from database
+    posts = models.Post.objects.all().order_by('id')[:3]    
     context = {"homeContents": homeContents, "posts": posts}
     return render(request, 'pages/home.html', context)
 
