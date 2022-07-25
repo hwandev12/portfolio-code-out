@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production! post
 DEBUG = True
 
 ALLOWED_HOSTS = ['blog-scientific.herokuapp.com', '127.0.0.1']
