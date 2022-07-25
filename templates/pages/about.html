@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}about us{% endblock title %}
+
+{% block content %}
+<header
+  class="masthead"
+  style="background-image: url({% static 'assets/img/about.jpg' %})"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>About us</h1>
+          <span class="subheading">Designetes for specific about us page</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ============================ Page Title End ================================== -->
+
+<!-- ============================ Our Story Start ================================== -->
+<section>
+
+	<div class="container">
+	
+		<!-- row Start -->
+		<div class="row align-items-center">
+
+			<div class="col-lg-6 col-md-6">
+				<img src="{% static 'assets/img/about_2.jpg' %}" class="img-fluid" alt="" />
+			</div>
+
+			<div class="col-lg-6 col-md-6">
+				<div class="story-wrap explore-content">
+					
+					<span class="ipn-subtitle">Our Company</span>
+					<h2>Mission statement</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					
+				</div>
+			</div>
+			
+		</div>
+		<!-- /row -->					
+		
+	</div>
+			
+</section>
+<!-- ============================ Our Story End ================================== -->	
+{% endblock content %}

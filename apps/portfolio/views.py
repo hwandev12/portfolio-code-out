@@ -41,3 +41,6 @@ def category_pages(request):
     }
     return render(request, 'pages/category_pages.html', context)
 
+# about us page
+def about(request):
+    return render(request, 'pages/about.html')
