@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
 
-ALLOWED_HOSTS = ['www.blogspace.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.blogspace.com']
 
 
 # Application definition
