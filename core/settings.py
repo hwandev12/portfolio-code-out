@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
 
-ALLOWED_HOSTS = ['http://www.blogspace.uz', 'blog-scientific.herokuapp.com']
+ALLOWED_HOSTS = ['www.blogspace.uz', 'blog-scientific.herokuapp.com']
 
 
 # Application definition
