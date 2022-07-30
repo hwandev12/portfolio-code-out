@@ -1,6 +1,9 @@
 {% extends 'layouts/base.html' %} {% block title %}categories{% endblock title %} {% block content %}
 {% load static %}
 <style>
+  body {
+    overflow-x: hidden;
+  }
   .card {
     background-color: #fff;
     border-radius: 10px;
@@ -68,7 +71,7 @@
   }
   @media(max-width: 500px) {
     .card_big {
-      transform: translateX(20px);
+      transform: translateX(15px);
     }
   }
   .card_big {
