@@ -44,3 +44,10 @@ def category_pages(request):
 # about us page
 def about(request):
     return render(request, 'pages/about.html')
+
+# create 404 page
+def error_500(request):
+    return render(request, 'pages/500.html', status=500)
+# create 404 page
+def error_404(request, exception):
+    return render(request, 'pages/404.html', status=404)

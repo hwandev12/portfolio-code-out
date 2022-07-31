@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .sim {
+        background-image: url({% static 'assets/img/about-bg.jpg' %}) !important;
+    }
+    @media(max-width: 900px) {
+        h1  {
+            font-size: 100px !important;
+        }
+        .emoji {
+            font-size: 80px !important;
+        }
+    }
+</style>
+<header class="masthead sim">
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+            <h1 style="font-size: 180px; letter-spacing: 3px;">4<span class="emoji" style="font-size: 150px;">😮</span>4</h1>
+            <span class="subheading" style="text-transform: uppercase;">opps, page not found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+{% endblock content %}
