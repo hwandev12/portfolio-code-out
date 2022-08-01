@@ -1,0 +1,207 @@
+{% extends 'layouts/base.html' %}
+{% block title %}contact{% endblock title %}
+{% block content %}
+{% load static %}
+<style>
+    body {
+        font-family: "Roboto Mono", monospace;
+        background-color: #fff;
+        line-height: 1.5; }
+      
+      h1, h2, h3, h4, h5, h6,
+      .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: "Oswald", sans-serif !important;
+        color: #000;
+        text-transform: uppercase; }
+      
+      a {
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease; }
+        a, a:hover {
+          text-decoration: none !important; }
+      
+      .text-black {
+        color: #000; }
+      
+      .content {
+        padding: 7rem 0; }
+      
+      .thin-heading {
+        font-weight: 300;
+        font-size: 30px; }
+      
+      .form-control {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding-left: 0;
+        padding: 0;
+        border-radius: 0px; }
+        .form-control:active, .form-control:focus {
+          outline: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          border-color: #000; }
+      
+      .col-form-label {
+        color: #000; }
+      
+      .btn, .form-control, .custom-select {
+        height: 50px; }
+      
+      .custom-select:active, .custom-select:focus {
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-color: #000; }
+      
+      .heading {
+        color: #888;
+        letter-spacing: .05rem;
+        text-transform: uppercase;
+        font-weight: 400; }
+      
+      .btn {
+        border: none;
+        border-radius: 0; }
+        .btn.btn-primary {
+          background: #000;
+          color: #fff;
+          padding: 15px 20px; }
+        .btn:hover {
+          color: #fff; }
+        .btn:active, .btn:focus {
+          outline: none;
+          -webkit-box-shadow: none;
+          box-shadow: none; }
+      
+      .box {
+        padding: 40px;
+        background: #fff;
+        -webkit-box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08); }
+        .box h3 {
+          font-size: 14px;
+          margin-bottom: 30px;
+          text-align: center; }
+      
+      label.error {
+        font-size: 12px;
+        color: red; }
+      
+      #message {
+        resize: vertical; }
+      
+      #form-message-warning, #form-message-success {
+        display: none; }
+      
+      #form-message-warning {
+        color: #B90B0B; }
+      
+      #form-message-success {
+        color: #55A44E;
+        font-size: 18px;
+        font-weight: bold; }
+      
+      .submitting {
+        float: left;
+        width: 100%;
+        padding: 10px 0;
+        display: none;
+        font-weight: bold;
+        font-size: 12px;
+        color: #000; }
+      
+</style>
+<header
+  class="masthead"
+  style="background-image: url({% static 'assets/img/about.jpg' %})"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1 style="color: white !important;">About us</h1>
+          <span class="subheading">Designetes for specific about us page</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="row mb-5">
+          <div class="col-md-4 mr-auto">
+            <h3 class="thin-heading mb-4">New York</h3>
+            <p>9757 Aspen Lane South Richmond Hill, NY 11419</p>
+          </div>
+          <div class="col-md-6 ml-auto">
+            <h3 class="thin-heading mb-4">Contact Info</h3>
+            <p>
+              T: +1 (291) 939 9321 <br />
+              E: info@mywebsite.com
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <h3 class="thin-heading mb-4">Message Us</h3>
+
+            <form
+              class="mb-5"
+              method="post"
+            >
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div class="col-md-6 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <textarea
+                  style="margin-top: 10px; padding-bottom: 0;"
+                    class="form-control"
+                    name="message"
+                    id="message"
+                    cols="30"
+                    rows="2"
+                    placeholder="Write your message"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input
+                    style="margin-top: 10px;"
+                    value="Submit"
+                    class="btn btn-primary rounded-0 py-2 px-4"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

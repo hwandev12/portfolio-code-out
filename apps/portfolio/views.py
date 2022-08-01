@@ -51,3 +51,7 @@ def error_500(request):
 # create 404 page
 def error_404(request, exception):
     return render(request, 'pages/404.html', status=404)
+
+# create contact us page
+def contact(request):
+    return render(request, 'pages/contact.html')
