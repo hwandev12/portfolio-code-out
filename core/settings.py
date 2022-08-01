@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
 
-ALLOWED_HOSTS = ['www.blogspace.uz', 'blog-scientific.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.blogspace.uz',
+                 'blog-scientific.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -35,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.portfolio',
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +56,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'templates' ],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +112,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 
 # Static files (CSS, JavaScript, Images)

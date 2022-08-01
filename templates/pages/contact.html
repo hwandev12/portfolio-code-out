@@ -7,30 +7,30 @@
         font-family: "Roboto Mono", monospace;
         background-color: #fff;
         line-height: 1.5; }
-      
+
       h1, h2, h3, h4, h5, h6,
       .h1, .h2, .h3, .h4, .h5, .h6 {
         font-family: "Oswald", sans-serif !important;
         color: #000;
         text-transform: uppercase; }
-      
+
       a {
         -webkit-transition: .3s all ease;
         -o-transition: .3s all ease;
         transition: .3s all ease; }
         a, a:hover {
           text-decoration: none !important; }
-      
+
       .text-black {
         color: #000; }
-      
+
       .content {
         padding: 7rem 0; }
-      
+
       .thin-heading {
         font-weight: 300;
         font-size: 30px; }
-      
+
       .form-control {
         border: none;
         border-bottom: 1px solid #ccc;
@@ -42,25 +42,25 @@
           -webkit-box-shadow: none;
           box-shadow: none;
           border-color: #000; }
-      
+
       .col-form-label {
         color: #000; }
-      
+
       .btn, .form-control, .custom-select {
         height: 50px; }
-      
+
       .custom-select:active, .custom-select:focus {
         outline: none;
         -webkit-box-shadow: none;
         box-shadow: none;
         border-color: #000; }
-      
+
       .heading {
         color: #888;
         letter-spacing: .05rem;
         text-transform: uppercase;
         font-weight: 400; }
-      
+
       .btn {
         border: none;
         border-radius: 0; }
@@ -74,7 +74,7 @@
           outline: none;
           -webkit-box-shadow: none;
           box-shadow: none; }
-      
+
       .box {
         padding: 40px;
         background: #fff;
@@ -84,25 +84,25 @@
           font-size: 14px;
           margin-bottom: 30px;
           text-align: center; }
-      
+
       label.error {
         font-size: 12px;
         color: red; }
-      
+
       #message {
         resize: vertical; }
-      
+
       #form-message-warning, #form-message-success {
         display: none; }
-      
+
       #form-message-warning {
         color: #B90B0B; }
-      
+
       #form-message-success {
         color: #55A44E;
         font-size: 18px;
         font-weight: bold; }
-      
+
       .submitting {
         float: left;
         width: 100%;
@@ -111,7 +111,7 @@
         font-weight: bold;
         font-size: 12px;
         color: #000; }
-      
+
 </style>
 <header
   class="masthead"
@@ -154,42 +154,26 @@
               class="mb-5"
               method="post"
             >
+            {% load widget_tweaks %}
+            {% csrf_token %}
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="name"
-                    id="name"
-                    placeholder="Your name"
-                  />
+                  {% render_field form.your_name type="text" class="form-control" placeholder="Your name" %}
                 </div>
                 <div class="col-md-6 form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
+                  {% render_field form.email type="email" class="form-control" placeholder="Email" %}
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 form-group">
-                  <textarea
-                  style="margin-top: 10px; padding-bottom: 0;"
-                    class="form-control"
-                    name="message"
-                    id="message"
-                    cols="30"
-                    rows="2"
-                    placeholder="Write your message"
-                  ></textarea>
+                <div class="col-md-12 form-group mt-3">
+                  <!-- {{ form.message|attr:"rows:5"|attr:"cols:60"|add_class:"form-control"  }} -->
+                  {% render_field form.message rows="5" cols="60" class="form-control" placeholder="Write your message" %}
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
                   <input
+                  type="submit"
                     style="margin-top: 10px;"
                     value="Submit"
                     class="btn btn-primary rounded-0 py-2 px-4"
