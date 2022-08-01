@@ -1,15 +1,20 @@
 from pathlib import Path
-import environ
+# import environ
 
 
-env = environ.Env(
-    DEBUG=(bool, True)
-)
+# env = environ.Env(
+#     DEBUG=(bool, False)
+# )
 
-environ.Env.read_env()
+# DEBUG = False
 
-DEBUG = env('DEBUG')
-SECRET_KEY = env('SECRET_KEY')
+# environ.Env.read_env()
+
+# DEBUG = env('DEBUG')
+# SECRET_KEY = env('SECRET_KEY')
+
+
+DEBUG = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,9 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
 
-ALLOWED_HOSTS = ['www.blogspace.uz',
-                 'blog-scientific.herokuapp.com', '127.0.0.1']
+# ALLOWED_HOSTS = ['www.blogspace.uz',
+#                  'blog-scientific.herokuapp.com', '127.0.0.1', 'blog-space.azurewebsites.net']
 
+ALLOWED_HOSTS = ["blog-space.azurewebsites.net"]
 
 # Application definition
 
@@ -123,7 +129,8 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
