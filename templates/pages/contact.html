@@ -157,15 +157,15 @@
             {% load widget_tweaks %}
             {% csrf_token %}
               <div class="row">
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group mt-5">
                   {% render_field form.your_name type="text" class="form-control" placeholder="Your name" %}
                 </div>
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group mt-5">
                   {% render_field form.email type="email" class="form-control" placeholder="Email" %}
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 form-group mt-3">
+                <div class="col-md-12 form-group mt-5">
                   <!-- {{ form.message|attr:"rows:5"|attr:"cols:60"|add_class:"form-control"  }} -->
                   {% render_field form.message rows="5" cols="60" class="form-control" placeholder="Write your message" %}
                 </div>
