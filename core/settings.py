@@ -1,20 +1,6 @@
 from pathlib import Path
-# import environ
 
 
-# env = environ.Env(
-#     DEBUG=(bool, False)
-# )
-
-# DEBUG = False
-
-# environ.Env.read_env()
-
-# DEBUG = env('DEBUG')
-# SECRET_KEY = env('SECRET_KEY')
-
-
-DEBUG = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,11 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
+DEBUG = True
 
 # ALLOWED_HOSTS = ['www.blogspace.uz',
 #                  'blog-scientific.herokuapp.com', '127.0.0.1', 'blog-space.azurewebsites.net']
 
-ALLOWED_HOSTS = ["blog-space.azurewebsites.net"]
+ALLOWED_HOSTS = ['blog-space.azurewebsites.net']
 
 # Application definition
 
