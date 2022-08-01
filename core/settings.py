@@ -3,7 +3,7 @@ import environ
 
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 
 environ.Env.read_env()
