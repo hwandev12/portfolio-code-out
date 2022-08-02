@@ -14,10 +14,7 @@ SECRET_KEY = 'django-insecure-*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&
 
 DEBUG = True
 
-# ALLOWED_HOSTS = ['www.blogspace.uz',
-#                  'blog-scientific.herokuapp.com', '127.0.0.1', 'blog-space.azurewebsites.net']
-
-ALLOWED_HOSTS = ['blog-app-global.azurewebsites.net']
+ALLOWED_HOSTS = ['blog-app-global.azurewebsites.net', 'www.digestblog.uz']
 
 # Application definition
 
