@@ -10,14 +10,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
+SECRET_KEY = 'django-insecure-*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&'
 
 DEBUG = True
 
 # ALLOWED_HOSTS = ['www.blogspace.uz',
 #                  'blog-scientific.herokuapp.com', '127.0.0.1', 'blog-space.azurewebsites.net']
 
-ALLOWED_HOSTS = ['blog-space.azurewebsites.net']
+ALLOWED_HOSTS = ['blog-app-global.azurewebsites.net']
 
 # Application definition
 
