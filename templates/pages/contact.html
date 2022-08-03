@@ -1,127 +1,247 @@
-{% extends 'layouts/base.html' %}
-{% block title %}contact{% endblock title %}
-{% block content %}
-{% load static %}
+{% extends 'layouts/base.html' %} {% block title %}contact{% endblock title %}
+{% block content %} {% load static %}
 <style>
-    body {
-        font-family: "Roboto Mono", monospace;
-        background-color: #fff;
-        line-height: 1.5; }
+  body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #fff;
+    line-height: 1.5;
+    overflow-y: hidden !important;
+  }
 
-      h1, h2, h3, h4, h5, h6,
-      .h1, .h2, .h3, .h4, .h5, .h6 {
-        font-family: "Oswald", sans-serif !important;
-        color: #000;
-        text-transform: uppercase; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: "Oswald", sans-serif !important;
+    color: #000;
+    text-transform: uppercase;
+  }
 
-      a {
-        -webkit-transition: .3s all ease;
-        -o-transition: .3s all ease;
-        transition: .3s all ease; }
-        a, a:hover {
-          text-decoration: none !important; }
+  a {
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+  }
+  a,
+  a:hover {
+    text-decoration: none !important;
+  }
 
-      .text-black {
-        color: #000; }
+  .text-black {
+    color: #000;
+  }
 
-      .content {
-        padding: 7rem 0; }
+  .content {
+    padding: 7rem 0;
+  }
 
-      .thin-heading {
-        font-weight: 300;
-        font-size: 30px; }
+  .thin-heading {
+    font-weight: 300;
+    font-size: 30px;
+  }
 
-      .form-control {
-        border: none;
-        border-bottom: 1px solid #ccc;
-        padding-left: 0;
-        padding: 0;
-        border-radius: 0px; }
-        .form-control:active, .form-control:focus {
-          outline: none;
-          -webkit-box-shadow: none;
-          box-shadow: none;
-          border-color: #000; }
+  .form-control {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding-left: 0;
+    padding: 0;
+    border-radius: 0px;
+  }
+  .form-control:active,
+  .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #000;
+  }
 
-      .col-form-label {
-        color: #000; }
+  .col-form-label {
+    color: #000;
+  }
 
-      .btn, .form-control, .custom-select {
-        height: 50px; }
+  .btn,
+  .form-control,
+  .custom-select {
+    height: 50px;
+  }
 
-      .custom-select:active, .custom-select:focus {
-        outline: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border-color: #000; }
+  .custom-select:active,
+  .custom-select:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #000;
+  }
 
-      .heading {
-        color: #888;
-        letter-spacing: .05rem;
-        text-transform: uppercase;
-        font-weight: 400; }
+  .heading {
+    color: #888;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
 
-      .btn {
-        border: none;
-        border-radius: 0; }
-        .btn.btn-primary {
-          background: #000;
-          color: #fff;
-          padding: 15px 20px; }
-        .btn:hover {
-          color: #fff; }
-        .btn:active, .btn:focus {
-          outline: none;
-          -webkit-box-shadow: none;
-          box-shadow: none; }
+  .btn {
+    border: none;
+    border-radius: 0;
+  }
+  .btn.btn-primary {
+    background: #000;
+    color: #fff;
+    padding: 15px 20px;
+  }
+  .btn:hover {
+    color: #fff;
+  }
+  .btn:active,
+  .btn:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
-      .box {
-        padding: 40px;
-        background: #fff;
-        -webkit-box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08);
-        box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08); }
-        .box h3 {
-          font-size: 14px;
-          margin-bottom: 30px;
-          text-align: center; }
+  .box {
+    padding: 40px;
+    background: #fff;
+    -webkit-box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08);
+  }
+  .box h3 {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
-      label.error {
-        font-size: 12px;
-        color: red; }
+  label.error {
+    font-size: 12px;
+    color: red;
+  }
 
-      #message {
-        resize: vertical; }
+  #message {
+    resize: vertical;
+  }
 
-      #form-message-warning, #form-message-success {
-        display: none; }
+  #form-message-warning,
+  #form-message-success {
+    display: none;
+  }
 
-      #form-message-warning {
-        color: #B90B0B; }
+  #form-message-warning {
+    color: #b90b0b;
+  }
 
-      #form-message-success {
-        color: #55A44E;
-        font-size: 18px;
-        font-weight: bold; }
+  #form-message-success {
+    color: #55a44e;
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-      .submitting {
-        float: left;
-        width: 100%;
-        padding: 10px 0;
-        display: none;
-        font-weight: bold;
-        font-size: 12px;
-        color: #000; }
+  .submitting {
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    display: none;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+  }
 
+  .prifix_loading_box {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evently;
+  }
+
+  .prifix_loading_box span {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background: green;
+    border-radius: 50%;
+    animation: all-effect 0.6s linear infinite alternate;
+    transform: scale(0);
+  }
+
+  .prifix_loading_box span:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .prifix_loading_box span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .prifix_loading_box span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .prifix_loading_box span:nth-child(4) {
+    animation-delay: 0.4s;
+    background: #00b9f5;
+  }
+
+  .prifix_loading_box span:nth-child(5) {
+    animation-delay: 0.5s;
+    background: #00b9f5;
+  }
+
+  @keyframes all-effect {
+    100% {
+      transform: scale(1);
+    }
+  }
+  .loader {
+    position: relative;
+    top: 0% !important;
+    z-index: 10 !important;
+  }
+  .child {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.9);
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 500px) {
+    .child {
+      position: absolute;
+      top: 50%;
+    }
+  }
+  .show {
+    display: none !important;
+  }
+  .content {
+    position: relative;
+  }
+  .overflow {
+    overflow-y: scroll !important;
+  }
 </style>
+<div class="d-flex justify-content-center align-items-center loader">
+  <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+</div>
 <header
   class="masthead"
-  style="background-image: url({% static 'assets/img/about.jpg' %})"
+  style="background-image: url({%static 'assets/img/about.jpg'%})"
 >
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
-          <h1 style="color: white !important;">About us</h1>
+          <h1 style="color: white !important">About us</h1>
           <span class="subheading">Designetes for specific about us page</span>
         </div>
       </div>
@@ -150,12 +270,9 @@
           <div class="col-md-12">
             <h3 class="thin-heading mb-4">Message Us</h3>
 
-            <form
-              class="mb-5"
-              method="post"
-            >
-            {% load widget_tweaks %}
-            {% csrf_token %}
+            <form class="mb-5" method="post">
+              {% load widget_tweaks %}
+              {% csrf_token %}
               <div class="row">
                 <div class="col-md-6 form-group mt-5">
                   {% render_field form.your_name type="text" class="form-control" placeholder="Your name" %}
@@ -173,8 +290,8 @@
               <div class="row">
                 <div class="col-12">
                   <input
-                  type="submit"
-                    style="margin-top: 10px;"
+                    type="submit"
+                    style="margin-top: 10px"
                     value="Submit"
                     class="btn btn-primary rounded-0 py-2 px-4"
                   />
@@ -187,5 +304,15 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  let loader = document.querySelector(".loader")
+  let content = document.querySelector(".content")
+  window.addEventListener("load", () => {
+    loader.classList.add("show")
+    document.body.classList.add("overflow")
+  })
+</script>
 
 {% endblock content %}
