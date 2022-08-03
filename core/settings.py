@@ -14,7 +14,9 @@ SECRET_KEY = 'django-insecure-*lf$v_lz&(wy8p%njkc)5%_(ey@$5_wd+k*#3qmhv#k=o+(my&
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['blog-app-global.azurewebsi tes.net', 'www.digestblog.uz', 'digestblog.uz', '127.0.0.1']
+ALLOWED_HOSTS = ['blog-app-global.azurewebsites.net', 'www.digestblog.uz', 'digestblog.uz', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://blog-app-global.azurewebsites.net','https://127.0.0.1']
 
 # Application definition
 
