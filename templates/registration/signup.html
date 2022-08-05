@@ -1,61 +1,254 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
 <style>
-    body {
-    background-color: #ff7700 !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23c6004c' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23a4003d' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23bf006c' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%239d0056' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23b80084' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23970069' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23b10098' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%238f007a' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E") !important;
-    background-attachment: fixed !important;
-    background-size: cover !important;
-    height: 100vh !important;
+    header.masthead {
+    margin-bottom: 0 !important;
 }
+.create {
+  border: none;
+  width: 100%;
+  height: 46px;
+  border-radius: 22.5px;
+  margin: auto;
+  margin-top: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #fff;
+  color: #ff97a4;
+  text-transform: uppercase;
+  font-size: 17px;
+  overflow: hidden;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  .create:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fd677a;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out; }
+  .create:hover {
+    color: white; }
+    .create:hover:before {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1); }
+
+@media (max-width: 1199px) {
+  .wrapper {
+    flex-direction: column; }
+    .wrapper .image-holder {
+      width: 100%;
+      height: 45vh; }
+    .wrapper .form-inner {
+      width: 100%;
+      height: 55vh; }
+
+  .form-inner {
+    padding-left: 20vw;
+    padding-right: 20vw; }
+
+  .create {
+    width: 50%; } }
+
+    @media (max-width: 767px) {
+  .wrapper .form-inner {
+    height: auto; }
+  .wrapper .image-holder {
+    height: auto; }
+
+  .image-holder img {
+    display: block; }
+
+  .form-inner {
+    padding: 30px 20px; }
+
+  .create {
+    width: 100%; } }
+
+body {
+    overflow-y: hidden !important;
+}
+
+.prifix_loading_box {
+      position: relative;
+      width: 200px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evently
+  }
+  
+    .prifix_loading_box span {
+      display: block;
+      height: 20px;
+      width: 20px;
+      background: green;
+      border-radius: 50%;
+      animation: all-effect 0.6s linear infinite alternate;
+      transform: scale(0)
+  }
+  
+  .prifix_loading_box span:nth-child(1) {
+      animation-delay: 0.1s
+  }
+  
+  .prifix_loading_box span:nth-child(2) {
+      animation-delay: 0.2s
+  }
+  
+  .prifix_loading_box span:nth-child(3) {
+      animation-delay: 0.3s
+  }
+  
+  .prifix_loading_box span:nth-child(4) {
+      animation-delay: 0.4s;
+      background: #00b9f5
+  }
+  
+  .prifix_loading_box span:nth-child(5) {
+      animation-delay: 0.5s;
+      background: #00b9f5
+  }
+  
+  @keyframes all-effect {
+      100% {
+          transform: scale(1)
+      }
+  }
+  .loader {
+    position: relative;
+    top: 0% !important;
+    z-index: 10 !important;  
+  }
+  .child {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.9);
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media(max-width: 500px) {
+    .child {
+      position: absolute;
+      top: 50%;
+    }
+  }
+  .mariana {
+    display: none !important;
+  }
+  .content{
+    position: relative;
+  }
+  .overflow {
+    overflow-y: scroll !important;
+  }
+
+.form-group ::placeholder {
+    color: #fff;
+}
+
 </style>
+<link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+<!-- STYLE CSS -->
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
-<!-- Sign up form -->
-<section class="signup">
-    <div class="container">
-        <div class="signup-content">
-            <div class="signup-form">
-                <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form">
-                  {% load widget_tweaks %}
-                  {% csrf_token %}
-                    <div class="form-group">
-                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <!-- {% render_field form.username type="text" class="form-control" placeholder="Full name" %} -->
-                        {{ form.username }}
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <!-- {% render_field form.email type="email" class="form-control" placeholder="Email" %} -->
-                        {{ form.email }}
-                    </div>
-                    <div class="form-group">
-                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                        <!-- {% render_field form.password1 type="password" class="form-control" placeholder="Password" %} -->
-                        {{ form.password1 }}
-                    </div>
-                    <div class="form-group">
-                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <!-- {% render_field form.password2 type="password" class="form-control" placeholder="Confirm Password" %} -->
-                        {{ form.password2 }}
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
-                    </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
-                    </div>
-                </form>
-            </div>
-            <div class="signup-image">
-                <figure><img src="{% static 'assets/img/signup-image.jpg' %}" alt="sing up image"></figure>
-                <a href="#" class="signup-image-link">I am already member</a>
+
+<div class="d-flex justify-content-center align-items-center loader">
+    <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+</div>
+
+<header class="masthead" style="background-image: url({% static 'assets/img/about.jpg' %})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Sign up</h1>
+                    <span class="subheading">Designetes for specific sign up page</span>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
+</header>
+<div class="wrapper">
+    <div class="image-holder">
+        <img src="images/registration-form-8.jpg" alt="">
+    </div>
+    <div class="form-inner">
+        <form action="" method="POST">
+              {% load widget_tweaks %}
+              {% csrf_token %}
+            <div class="form-header">
+                <h3>Sign up</h3>
+                <img src="{% static 'images/sign-up.png' %}" alt="" class="sign-up-icon">
+            </div>
+            <div class="form-group">
+                <label for="">Username:</label>
+                {% render_field form.username type="text" class="form-control" placeholder="Full name" %}
+            </div>
+            <div class="form-group">
+                <label for="">E-mail:</label>
+                {% render_field form.email type="email" class="form-control" placeholder="Email" %}
+            </div>
+            <div class="form-group">
+                <label for="">Password:</label>
+                 {% render_field form.password1 type="password" class="form-control" placeholder="Password" %}
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password:</label>
+                 {% render_field form.password2 type="password" class="form-control" placeholder="Confirm password" %}
+            </div>
+            <button type="submit" class="create">create my account</button>
+            <div class="socials">
+                <p>Sign up with social platforms</p>
+                <a href="" class="socials-icon">
+                    <i class="zmdi zmdi-facebook"></i>
+                </a>
+                <a href="" class="socials-icon">
+                    <i class="zmdi zmdi-instagram"></i>
+                </a>
+                <a href="" class="socials-icon">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+                <a href="" class="socials-icon">
+                    <i class="zmdi zmdi-tumblr"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{% static 'jasa/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'jasa/jquery.form-validator.min.js' %}"></script>
+<script src="{% static 'jasa/main.js' %}"></script>
+<script>
+    let loader = document.querySelector(".loader")
+    let content = document.querySelector(".content")
+    window.addEventListener("load", () => {
+      loader.classList.add("mariana")
+      document.body.classList.add("overflow")
+    })
+  </script>
+
 {% endblock content %}
