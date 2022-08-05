@@ -1,6 +1,7 @@
 from random import betavariate
 from django.urls import path, include
 from . import views
+from apps.authentication.views import signup
 
 app_name = 'blog'
 
@@ -11,5 +12,6 @@ urlpatterns = [
     path('category/', views.category_pages, name='category_page'),
     # about us page
     path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact')
+    path('contact/', views.contact, name='contact'),
+    path('signup/', signup, name='signup'),
 ]

@@ -1,0 +1,61 @@
+{% load static %}
+{% block content %}
+<style>
+    body {
+    background-color: #ff7700 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23c6004c' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23a4003d' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23bf006c' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%239d0056' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23b80084' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23970069' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23b10098' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%238f007a' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E") !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    height: 100vh !important;
+}
+</style>
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+<!-- Sign up form -->
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form method="POST" class="register-form" id="register-form">
+                  {% load widget_tweaks %}
+                  {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <!-- {% render_field form.username type="text" class="form-control" placeholder="Full name" %} -->
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <!-- {% render_field form.email type="email" class="form-control" placeholder="Email" %} -->
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <!-- {% render_field form.password1 type="password" class="form-control" placeholder="Password" %} -->
+                        {{ form.password1 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <!-- {% render_field form.password2 type="password" class="form-control" placeholder="Confirm Password" %} -->
+                        {{ form.password2 }}
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                    </div>
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="{% static 'assets/img/signup-image.jpg' %}" alt="sing up image"></figure>
+                <a href="#" class="signup-image-link">I am already member</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock content %}
