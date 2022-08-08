@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse, redirect
 from .forms import CreateUserForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout
 
 # create sign up view
 def signup(request):
@@ -16,7 +16,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {"form": form})
 
 
-def loginView(request):
+def login(request):
 
 
     if request.method == "POST":
@@ -26,7 +26,7 @@ def loginView(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, user)
-            return reverse("blog:home")
+            auth_login(request, user)
+            return redirect("/about/")
 
     return render(request, 'registration/login.html')

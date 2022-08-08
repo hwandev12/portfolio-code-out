@@ -122,6 +122,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
+LOGOUT_REDIRECT_URL = '/'
+
 AUTH_USER_MODEL = 'portfolio.User'
 
 # Default primary key field type
