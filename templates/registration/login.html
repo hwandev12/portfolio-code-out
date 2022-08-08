@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
     header.masthead {
     margin-bottom: 0 !important;
 }
@@ -88,6 +89,10 @@
 
 body {
     overflow-y: hidden !important;
+    font-family: 'Quicksand', sans-serif !important;
+}
+::placeholder {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 .prifix_loading_box {
@@ -108,7 +113,9 @@ body {
       animation: all-effect 0.6s linear infinite alternate;
       transform: scale(0)
   }
-  
+  button {
+    font-family: 'Quicksand', sans-serif !important;
+  }
   .prifix_loading_box span:nth-child(1) {
       animation-delay: 0.1s
   }
@@ -178,19 +185,19 @@ body {
 <div class="d-flex justify-content-center align-items-center loader">
     <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
 </div>
-<header class="masthead" style="background-image: url({% static 'assets/img/about.jpg' %})">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>Login</h1>
-                    <span class="subheading">Designetes for specific Login page</span>
-                </div>
+<header class="masthead" style="background-image: url({% static 'assets/img/about.jpg' %}); color: white;">
+    <div class=" container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+                <h1>Login</h1>
+                <span class="subheading">Designetes for specific Login page</span>
             </div>
         </div>
     </div>
+    </div>
 </header>
-<div class="wrapper">
+<div class="wrapper" style=" font-family: 'Quicksand', sans-serif !important;">
     <div class="image-holder">
         <img src="images/registration-form-8.jpg" alt="">
     </div>
@@ -209,21 +216,26 @@ body {
                 <label for="">Password:</label>
                 <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
+            {% for message in messages %}
+            <p class="text-center" style="font-size: 18px; font-family: 'Quicksand', sans-serif !important;">{{ message }}</p>
+            {% endfor %}
             <button type="submit" class="create">Login</button>
-            <div class="socials">
-                <p>Sign in with social platforms</p>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-facebook"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-instagram"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-twitter"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-tumblr"></i>
-                </a>
+            <div>
+                <p class="socials" style="font-family: 'Quicksand', sans-serif !important;">Sign in with social platforms</p>
+                <div class="d-flex justify-content-center">
+                    <a href="" class="socials-icon">
+                        <i class="zmdi zmdi-facebook"></i>
+                    </a>
+                    <a href="" class="socials-icon">
+                        <i class="zmdi zmdi-instagram"></i>
+                    </a>
+                    <a href="" class="socials-icon">
+                        <i class="zmdi zmdi-twitter"></i>
+                    </a>
+                    <a href="" class="socials-icon">
+                        <i class="zmdi zmdi-tumblr"></i>
+                    </a>
+                </div>
             </div>
         </form>
     </div>

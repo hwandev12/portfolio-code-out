@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <style>
+   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
     header.masthead {
     margin-bottom: 0 !important;
 }
@@ -88,6 +89,7 @@
 
 body {
     overflow-y: hidden !important;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 .prifix_loading_box {
@@ -136,6 +138,9 @@ body {
           transform: scale(1)
       }
   }
+  ::placeholder {
+    font-family: 'Quicksand', sans-serif !important;
+  }
   .loader {
     position: relative;
     top: 0% !important;
@@ -179,7 +184,12 @@ header.masthead {
     padding-top: 0px !important;
   }
 }
-
+p {
+  font-family: 'Quicksand', sans-serif !important;
+}
+button {
+  font-family: 'Quicksand', sans-serif !important;
+}
 </style>
 <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 <!-- STYLE CSS -->
