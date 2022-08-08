@@ -36,7 +36,8 @@ a {
   text-decoration: none; }
 
 :focus {
-  outline: none; }
+  outline: none; 
+}
 
 .wrapper {
   min-height: 100vh;
