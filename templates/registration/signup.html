@@ -170,85 +170,83 @@ body {
 .form-group ::placeholder {
     color: #fff;
 }
+header.masthead {
+  padding-top: 90px !important;
+  padding-bottom: 0px !important;
+}
+@media(max-width: 990px) {
+  header.masthead {
+    padding-top: 0px !important;
+  }
+}
 
 </style>
 <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 <!-- STYLE CSS -->
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-
 <div class="d-flex justify-content-center align-items-center loader">
     <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
 </div>
-
-<header class="masthead" style="background-image: url({% static 'assets/img/about.jpg' %})">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>Sign up</h1>
-                    <span class="subheading">Designetes for specific sign up page</span>
-                </div>
+<header class="masthead">
+    <div class="position-relative">
+        <div class="wrapper">
+            <div class="image-holder">
+                <img src="images/registration-form-8.jpg" alt="">
+            </div>
+            <div class="form-inner">
+                <form action="" method="POST">
+                    {% load widget_tweaks %}
+                    {% csrf_token %}
+                    <div class="form-header">
+                        <h3>Sign up</h3>
+                        <img src="{% static 'images/sign-up.png' %}" alt="" class="sign-up-icon">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username:</label>
+                        {% render_field form.username type="text" class="form-control" placeholder="Full name" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="">E-mail:</label>
+                        {% render_field form.email type="email" class="form-control" placeholder="Email" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password:</label>
+                        {% render_field form.password1 type="password" class="form-control" placeholder="Password" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="">Confirm Password:</label>
+                        {% render_field form.password2 type="password" class="form-control" placeholder="Confirm password" %}
+                    </div>
+                    <button type="submit" class="create">create my account</button>
+                    <div class="socials">
+                        <p>Sign up with social platforms</p>
+                        <a href="" class="socials-icon">
+                            <i class="zmdi zmdi-facebook"></i>
+                        </a>
+                        <a href="" class="socials-icon">
+                            <i class="zmdi zmdi-instagram"></i>
+                        </a>
+                        <a href="" class="socials-icon">
+                            <i class="zmdi zmdi-twitter"></i>
+                        </a>
+                        <a href="" class="socials-icon">
+                            <i class="zmdi zmdi-tumblr"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </header>
-<div class="wrapper">
-    <div class="image-holder">
-        <img src="images/registration-form-8.jpg" alt="">
-    </div>
-    <div class="form-inner">
-        <form action="" method="POST">
-              {% load widget_tweaks %}
-              {% csrf_token %}
-            <div class="form-header">
-                <h3>Sign up</h3>
-                <img src="{% static 'images/sign-up.png' %}" alt="" class="sign-up-icon">
-            </div>
-            <div class="form-group">
-                <label for="">Username:</label>
-                {% render_field form.username type="text" class="form-control" placeholder="Full name" %}
-            </div>
-            <div class="form-group">
-                <label for="">E-mail:</label>
-                {% render_field form.email type="email" class="form-control" placeholder="Email" %}
-            </div>
-            <div class="form-group">
-                <label for="">Password:</label>
-                 {% render_field form.password1 type="password" class="form-control" placeholder="Password" %}
-            </div>
-            <div class="form-group">
-                <label for="">Confirm Password:</label>
-                 {% render_field form.password2 type="password" class="form-control" placeholder="Confirm password" %}
-            </div>
-            <button type="submit" class="create">create my account</button>
-            <div class="socials">
-                <p>Sign up with social platforms</p>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-facebook"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-instagram"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-twitter"></i>
-                </a>
-                <a href="" class="socials-icon">
-                    <i class="zmdi zmdi-tumblr"></i>
-                </a>
-            </div>
-        </form>
-    </div>
-</div>
 <script src="{% static 'jasa/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'jasa/jquery.form-validator.min.js' %}"></script>
 <script src="{% static 'jasa/main.js' %}"></script>
 <script>
-    let loader = document.querySelector(".loader")
-    let content = document.querySelector(".content")
-    window.addEventListener("load", () => {
-      loader.classList.add("mariana")
-      document.body.classList.add("overflow")
-    })
-  </script>
-
+let loader = document.querySelector(".loader")
+let content = document.querySelector(".content")
+window.addEventListener("load", () => {
+    loader.classList.add("mariana")
+    document.body.classList.add("overflow")
+})
+</script>
 {% endblock content %}
