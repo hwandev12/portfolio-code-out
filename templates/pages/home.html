@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %} {% block title %}base page{% endblock title %}
 {% block content %} {% load static %}
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
   * {
     padding: 0;
     margin: 0
@@ -89,6 +90,46 @@ body {
 .overflow {
   overflow-y: scroll !important;
 }
+@media(max-width: 900px) {
+  .beta {
+    top: 9.10% !important; 
+    z-index: 3 !important;
+    /*width: 100%;*/
+    border: 2px solid aqua;
+    letter-spacing: 2px;
+  }
+}
+
+.beta span {
+   animation: beta_anime 2s linear infinite alternate;
+}
+
+.beta span:nth-child(1) {
+    animation-delay: 0.1s;
+    /*color: white !important;*/
+}
+.beta span:nth-child(2) {
+    animation-delay: 0.2s;
+    /*color: blue;*/
+}
+.beta span:nth-child(3) {
+    animation-delay: 0.3s;
+    /*color: yellow;*/
+}
+.beta span:nth-child(4) {
+    animation-delay: 0.4;
+    /*color: red;*/
+}
+
+
+@keyframes beta_anime {
+  50% {
+    color: red;
+  }
+  100% {
+    color: aqua;
+  }
+}
 </style>
 
 <div class="d-flex justify-content-center align-items-center loader">
@@ -98,14 +139,23 @@ body {
 {% for y in homeContents %}    
 <header
   class="masthead"
-  style="background-image: url({{ y.blog_headingImage.url }})"
+  style="background-image: url({{ y.blog_headingImage.url }});"
 >
   <div class="container  px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
-          <h1 style="color: white !important;">{{ y.blog_heading }}</h1>
-          <span class="subheading">{{ y.blog_subheading }}</span>
+          <h1 style="color: white !important; position: relative;">{{ y.blog_heading }}</h1>
+          <span class="subheading" style="position: relative;">{{ y.blog_subheading }}</span>
+          <h3 style="
+          position: fixed;
+          right: 0px !important;
+          top:50%;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          border: 2px solid aqua;
+          font-family: 'Dancing Script', cursive;
+          " class="beta"><span>B</span><span>e</span><span>t</span><span>a</span></h3>
         </div>
       </div>
     </div>
