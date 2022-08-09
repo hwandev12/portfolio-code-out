@@ -1,153 +1,20 @@
 {% extends 'layouts/base.html' %} {% block title %}base page{% endblock title %}
 {% block content %} {% load static %}
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-  * {
-    padding: 0;
-    margin: 0
-}
-
-body {
-  overflow-y: hidden !important;
-}
-
-.navbar {
-  display: block !important;
-}
-.prifix_loading_box {
-    position: relative;
-    width: 200px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evently
-}
-
-.prifix_loading_box span {
-    display: block;
-    height: 20px;
-    width: 20px;
-    background: green;
-    border-radius: 50%;
-    animation: all-effect 0.6s linear infinite alternate;
-    transform: scale(0)
-}
-
-.prifix_loading_box span:nth-child(1) {
-    animation-delay: 0.1s
-}
-
-.prifix_loading_box span:nth-child(2) {
-    animation-delay: 0.2s
-}
-
-.prifix_loading_box span:nth-child(3) {
-    animation-delay: 0.3s
-}
-
-.prifix_loading_box span:nth-child(4) {
-    animation-delay: 0.4s;
-    background: #00b9f5
-}
-
-.prifix_loading_box span:nth-child(5) {
-    animation-delay: 0.5s;
-    background: #00b9f5
-}
-
-@keyframes all-effect {
-    100% {
-        transform: scale(1)
-    }
-}
-.loader {
-  position: relative;
-  top: 0% !important;
-  z-index: 10 !important;  
-}
-.child {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(1, 1, 1, 0.9);
-  top: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media(max-width: 500px) {
-  .child {
-    position: absolute;
-    top: 50%;
-  }
-}
-.mariana {
-  display: none !important;
-}
-.content{
-  position: relative;
-}
-.overflow {
-  overflow-y: scroll !important;
-}
-@media(max-width: 900px) {
-  .beta {
-    top: 9.10% !important; 
-    z-index: 3 !important;
-    /*width: 100%;*/
-    border: 2px solid aqua;
-    letter-spacing: 2px;
-  }
-}
-
-.beta span {
-   animation: beta_anime 2s linear infinite alternate;
-}
-
-.beta span:nth-child(1) {
-    animation-delay: 0.1s;
-    /*color: white !important;*/
-}
-.beta span:nth-child(2) {
-    animation-delay: 0.2s;
-    /*color: blue;*/
-}
-.beta span:nth-child(3) {
-    animation-delay: 0.3s;
-    /*color: yellow;*/
-}
-.beta span:nth-child(4) {
-    animation-delay: 0.4;
-    /*color: red;*/
-}
-
-
-@keyframes beta_anime {
-  50% {
-    color: red;
-  }
-  100% {
-    color: aqua;
-  }
-}
-</style>
-
-<div class="d-flex justify-content-center align-items-center loader">
-  <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
-</div>
-<!-- Page Header-->
-{% for y in homeContents %}    
-<header
-  class="masthead"
-  style="background-image: url({{ y.blog_headingImage.url }});"
->
-  <div class="container  px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="site-heading">
-          <h1 style="color: white !important; position: relative;">{{ y.blog_heading }}</h1>
-          <span class="subheading" style="position: relative;">{{ y.blog_subheading }}</span>
-          <h3 style="
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<main id="main_home">
+    <div class="d-flex justify-content-center align-items-center loader">
+        <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+    </div>
+    <!-- Page Header-->
+    {% for y in homeContents %}
+    <header class="masthead" style="background-image: url({{ y.blog_headingImage.url }});">
+        <div class="container  px-4 px-lg-5 sferma">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1 style="color: white !important; position: relative;">{{ y.blog_heading }}</h1>
+                        <span class="subheading" style="position: relative;">{{ y.blog_subheading }}</span>
+                        <!--  <h3 style="
           position: fixed;
           right: 0px !important;
           top:50%;
@@ -155,56 +22,56 @@ body {
           padding: 10px;
           border: 2px solid aqua;
           font-family: 'Dancing Script', cursive;
-          " class="beta"><span>B</span><span>e</span><span>t</span><span>a</span></h3>
+          " class="beta"><span>B</span><span>e</span><span>t</span><span>a</span></h3> -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
+    {% endfor %}
+    <!-- Main Content-->
+    <div class="popup_message">
+        <span class="exit"></span>
+        <h2 class="text-center">You are trying to logout</h2>
+        <a href="{% url 'blog:logout' %}" class="btn btn-danger mt-3">Logout</a>
     </div>
-  </div>
-</header>
-{% endfor %}
-
-
-
-<!-- Main Content-->
-<div class="container px-4 px-lg-5 content">
-  <div class="row gx-4 gx-lg-5 justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-7">
-      {% for p in posts %}
-      <!-- Post preview-->
-      <div class="post-preview">
-        <a href="{% url 'blog:post' p.pk %}">
-          <h2 class="post-title">
-           {{ p.main_heading }}
-          </h2>
-          <h3 class="post-subtitle">
-            {{ p.sub_heading }}
-          </h3>
-        </a>
-        <p class="post-meta">
-          Posted by
-          <a href="#!">Khusan Akhmedov</a>
-          on {{ p.date_post }}
-        </p>
-      </div>
-      <!-- Divider-->
-      <hr class="my-4" />
-      {% endfor %}
-      <!-- Pager-->
-      <div class="d-flex justify-content-end mb-4">
-        <a class="btn btn-primary text-uppercase" href="{% url 'blog:category' %}?category/all_posts/34hk4h3kj4hk3j4hkhjkh3k434/">All Posts →</a>
-      </div>
+    <div class="container px-4 px-lg-5 content">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 thing">
+                {% for p in posts %}
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="{% url 'blog:post' p.pk %}">
+                        <h2 class="post-title">
+                            {{ p.main_heading }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{ p.sub_heading }}
+                        </h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#!">Khusan Akhmedov</a>
+                        on {{ p.date_post }}
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                {% endfor %}
+                <!-- Pager-->
+                <div class="d-flex justify-content-end mb-4">
+                    <a class="btn btn-primary text-uppercase" href="{% url 'blog:category' %}?category/all_posts/34hk4h3kj4hk3j4hkhjkh3k434/">All Posts →</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-
-
-<script>
-  let loader = document.querySelector(".loader")
-  window.addEventListener("load", () => {
-    loader.classList.add("mariana")
-    document.body.classList.add("overflow")
-  })
-</script>
-
+    <script src="{% static 'js/home.js' %}"></script>
+    <script>
+    let loader = document.querySelector(".loader")
+    window.addEventListener("load", () => {
+        loader.classList.add("mariana")
+        document.body.classList.add("overflow")
+    })
+    </script>
+</main>
 {% endblock content %}

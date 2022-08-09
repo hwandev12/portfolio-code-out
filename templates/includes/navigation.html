@@ -76,13 +76,8 @@
         {% endif %}
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:logout' %}"
+          <a class="nav-link px-lg-3 py-3 py-lg-4" id="pop_link" href="#"
             >Logout</a
-          >
-        </li>
-        <li class="nav-item scroll">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="#"
-            >{{ request.user.username }}</a
           >
         </li>
         {% endif %}

@@ -27,7 +27,7 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            return redirect("/home/")
+            return redirect("/")
         else:
             messages.info(request, "Username or Password you entered is wrong!")
 
