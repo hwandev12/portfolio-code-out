@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %} {% block title %}contact{% endblock title %}
 {% block content %} {% load static %}
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
   body {
     font-family: "Roboto Mono", monospace;
     background-color: #fff;
@@ -22,7 +23,6 @@
   .h6 {
     font-family: "Oswald", sans-serif !important;
     color: #000;
-    text-transform: uppercase;
   }
 
   a {
@@ -229,6 +229,26 @@
   .overflow {
     overflow-y: scroll !important;
   }
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header h1, p {
+   font-family: 'Open Sans', sans-serif !important;
+}
+@media(max-width: 700px) {
+  header h1 {
+    font-size: 3rem !important;
+  }
+}
+@media(min-width: 700px) {
+  header h1 {
+    font-size: 5rem !important;
+  }
+}
+
 </style>
 <div class="d-flex justify-content-center align-items-center loader">
   <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
@@ -241,7 +261,7 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
-          <h1 style="color: white !important">About us</h1>
+          <h1 style="color: white !important;">About us</h1>
           <span class="subheading">Designetes for specific about us page</span>
         </div>
       </div>

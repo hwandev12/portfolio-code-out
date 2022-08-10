@@ -1,17 +1,25 @@
 {% extends 'layouts/base.html' %} {% block title %}categories{% endblock title %} {% block content %}
 {% load static %}
 <style>
-  body {
+body {
     overflow-x: hidden;
     overflow-y: hidden !important;
-  }
-  .prifix_loading_box {
+}
+
+.prifix_loading_box {
     position: relative;
     width: 200px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-evently
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .prifix_loading_box span {
@@ -51,62 +59,71 @@
         transform: scale(1)
     }
 }
+
 .loader {
-  position: relative;
-  top: 0% !important;
-  z-index: 10 !important;  
+    position: relative;
+    top: 0% !important;
+    z-index: 10 !important;
 }
+
 .child1 {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(1, 1, 1, 0.9);
-  top: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media(max-width: 500px) {
-  .child {
     position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.9);
     top: 50%;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+@media(max-width: 500px) {
+    .child {
+        position: absolute;
+        top: 50%;
+    }
+}
+
 .mariana {
-  display: none !important;
+    display: none !important;
 }
-.content{
-  position: relative;
+
+.content {
+    position: relative;
 }
+
 .overflow {
-  overflow-y: scroll !important;
+    overflow-y: scroll !important;
 }
-  .card {
+
+.card {
     background-color: #fff;
     border-radius: 10px;
     border: none;
     position: relative;
     margin-bottom: 30px;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
-      0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
-      0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
-      0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
-  }
-  h1, h2 {
+        0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+        0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+        0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+
+h2 {
     font-size: 17px !important;
-  }
-  h5 {
+}
+
+h5 {
     font-size: 20px !important;
-  }
+}
 
-  .card .card-statistic-3 .card-icon-large .fas,
-  .card .card-statistic-3 .card-icon-large .far,
-  .card .card-statistic-3 .card-icon-large .fab,
-  .card .card-statistic-3 .card-icon-large .fal {
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
     font-size: 110px !important;
-  }
+}
 
-  .card .card-statistic-3 .card-icon {
+.card .card-statistic-3 .card-icon {
     text-align: center;
     line-height: 50px;
     margin-left: 15px;
@@ -116,61 +133,70 @@
     top: 20px;
     opacity: 0.1;
     font-size: 100px;
-  }
+}
 
-  .l-bg-cyan {
+.l-bg-cyan {
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
-  }
+}
 
-  .l-bg-green {
+.l-bg-green {
     background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
     color: #fff;
-  }
+}
 
-  .l-bg-orange {
+.l-bg-orange {
     background: linear-gradient(to right, #f9900e, #ffba56) !important;
     color: #fff;
-  }
+}
 
-  .l-bg-cyan {
+.l-bg-cyan {
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
-  }
-  @media(min-width: 992px) {
+}
+
+@media(min-width: 992px) {
     .card_bg {
-      width: 220px !important;
+        width: 220px !important;
     }
-  }
-  @media(max-width:  500px) {
+}
+
+@media(max-width: 500px) {
     header.masthead {
-      margin-bottom: 0.5px !important;
+        margin-bottom: 0.5px !important;
     }
+
     .card_big {
-      margin-bottom: 30px !important;
+        margin-bottom: 30px !important;
     }
-  }
-  .card_big {
+}
+
+.card_big {
     margin-left: auto;
     margin-right: auto;
-  }
-  row {
+}
+
+row {
     width: 1200px !important;
     display: flex !important;
     justify-content: center !important;
-  }
-  .card_link {
+}
+
+.card_link {
     color: #fff;
     text-decoration: none;
-  }
-  .card_link:hover {
+}
+
+.card_link:hover {
     color: white !important;
-  }
-  .card_bg  {
+}
+
+.card_bg {
     width: 200px !important;
     height: 110px !important;
-  }
-  .child {
+}
+
+.child {
     width: 100% !important;
     height: 100% !important;
     background-color: #555 !important;
@@ -179,52 +205,52 @@
     background-size: 100%;
     background-repeat: no-repeat;
     transition: all .5s !important;
-  }
-  .card_bg:hover .child,
-  .card_bg:focus .child {
-  background-size: 120%;
-  transition: all .5s !important;
+}
+
+.card_bg:hover .child,
+.card_bg:focus .child {
+    background-size: 120%;
+    transition: all .5s !important;
 }
 </style>
 <div class="d-flex justify-content-center align-items-center loader">
-  <div class="prifix_loading_box child1"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+    <div class="prifix_loading_box child1"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
 </div>
 <header class="masthead" style="background-image: url({% static 'assets/img/about.jpg' %})">
-  <div class="container position-relative px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="site-heading">
-          <h1 style="font-size: 50px">{{ post.main_heading }}</h1>
-          <span class="subheading">{{ post.sub_heading }}</span>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Category</h1>
+                    <span class="subheading">{{ post.sub_heading }}</span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </header>
 <div class="col-md-10 card_big">
-  <div class="row align-items-center justify-content-center">
-    {% for cat in categories %}
-    <div class="col-xl-3 col-lg-6 card_bg mb-2">
-      <div class="card child" style="background-image: url({{ cat.image.url }});">
-        <a class="card_link" href="{% url 'blog:category_page' %}?category={{ cat.name }}">
-          <div class="card-statistic-3 p-4">
-            <div class="row align-items-center mb-2 d-flex">
-              <h2 class="text-center pt-3">{{ cat.name }}</h2>
+    <div class="row align-items-center justify-content-center">
+        {% for cat in categories %}
+        <div class="col-xl-3 col-lg-6 card_bg mb-2">
+            <div class="card child" style="background-image: url({{ cat.image.url }});">
+                <a class="card_link" href="{% url 'blog:category_page' %}?category={{ cat.name }}">
+                    <div class="card-statistic-3 p-4">
+                        <div class="row align-items-center mb-2 d-flex">
+                            <h2 class="text-center pt-3">{{ cat.name }}</h2>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
-        </a>
-      </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-  </div>
 </div>
-
 <script>
-  let loader = document.querySelector(".loader")
-  let content = document.querySelector(".content")
-  window.addEventListener("load", () => {
+let loader = document.querySelector(".loader")
+let content = document.querySelector(".content")
+window.addEventListener("load", () => {
     loader.classList.add("mariana")
     document.body.classList.add("overflow")
-  })
+})
 </script>
 {% endblock content %}
