@@ -32,3 +32,7 @@ def login(request):
             messages.info(request, "Username or Password you entered is wrong!")
 
     return render(request, 'registration/login.html')
+
+
+def profile(request):
+    return render(request, 'pages/profile.html')
