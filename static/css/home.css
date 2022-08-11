@@ -300,3 +300,9 @@ header {
 .profile_show {
     display: block;
 }
+
+@media (max-width: 992px) {
+    .profile_tab {
+        opacity: 0 !important;
+    }
+}

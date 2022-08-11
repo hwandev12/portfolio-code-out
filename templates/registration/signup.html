@@ -228,6 +228,7 @@ button {
                         {% render_field form.password2 type="password" class="form-control" placeholder="Confirm password" %}
                     </div>
                     <button type="submit" class="create">create my account</button>
+                    {{ form.errors }}
                     <div class="socials">
                         <p>Sign up with social platforms</p>
                         <a href="" class="socials-icon">

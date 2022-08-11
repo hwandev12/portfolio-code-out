@@ -1,0 +1,21 @@
+{% extends 'dashboard/pages/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<div class="main-stats">
+    <div class="stats">
+    	<p>Total Users:</p>
+    	<h1>{{ users }}</h1>
+    </div>
+    <hr>
+    <div class="stats">
+    	<p>Total Posts:</p>
+    	<h1>{{ posts }}</h1>
+    </div>
+    <hr>
+    <div class="stats">
+    	<p>Total Unviewed posts:</p>
+    	<h1>{{ contact }}</h1>
+    </div>
+</div>
+{% endblock content %}
