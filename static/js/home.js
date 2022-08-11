@@ -6,7 +6,10 @@ let message = document.querySelector(".popup_message")
 let header_home = document.querySelector(".masthead")
 let content2 = document.querySelector(".main_home")
 let main_home = document.body
-console.log(main_home)
+
+// for profile account
+let image = document.querySelector("#img_profile")
+let profile = document.querySelector(".profile_tab")
 
 
 
@@ -39,6 +42,11 @@ window.onclick = function(event) {
         header_home.style.backgroundBlendMode = 'normal'
         content2.style.backgroundColor = 'white'
     	content2.style.backgroundBlendMode = 'normal'
+        profile.classList.remove("profile_show")
         event.stopPropagation();
     }
 }
+
+image.addEventListener("click", function() {
+    profile.classList.toggle("profile_show")
+})

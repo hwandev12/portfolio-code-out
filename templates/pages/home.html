@@ -8,6 +8,24 @@
     <!-- Page Header-->
     {% for y in homeContents %}
     <header class="masthead" style="background-image: url({{ y.blog_headingImage.url }});">
+        <div class="profile_tab">
+            <div class="profile_nav">
+                <p>Campus</p>
+                <p><a href="#">Signout</a></p>
+            </div>
+            <div class="profile_body">
+                <img src="{{ user.profile.image.url }}" alt="" width="100">
+                <div>
+                    <p>{{ user.username }}</p>
+                    <p>{{ user.email }}</p>
+                    <p><a href="#">Switch account</a></p>
+                    <p><a href="#">Edit account</a></p>
+                </div>
+            </div>
+            <div class="profile_below">
+                <a href="#">Sign in with different account</a>
+            </div>
+        </div>
         <div class="container  px-4 px-lg-5 sferma">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -32,6 +50,7 @@
     <!-- Main Content-->
     <div class="popup_message">
         <span class="exit"></span>
+        <!-- <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 50px; color: white; padding: 20px 0px;"></i> -->
         <h2 class="text-center">You are trying to logout</h2>
         <a href="{% url 'blog:logout' %}" class="btn btn-danger mt-3">Logout</a>
     </div>

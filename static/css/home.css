@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
 
 * {
     padding: 0;
@@ -10,7 +11,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 .prifix_loading_box {
@@ -230,4 +231,72 @@ header {
         cursor: pointer;
         transition: 0.1s all ease;
     }
+}
+.profile_tab {
+    position: absolute;
+    top: 60px;
+    right: 160px;
+    width: 400px;
+    height: 200px;
+    background-color: orange;
+    padding: 10px 30px;
+    background-color: #ddd;
+    font-family: 'Open Sans', sans-serif;
+    display: none;
+}
+
+.profile_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile_nav p {
+    margin: 0 !important;
+    color: #222;
+    font-size: 16px;
+}
+
+.profile_nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 16px;
+}
+
+.profile_body {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile_body p {
+    margin: 0 !important;
+    font-size: 17px;
+}
+
+.profile_body a {
+    color: blue;
+}
+
+.profile_below {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #999;
+    text-align: center;
+}
+
+.profile_below a {
+    font-size: 15px;
+}
+
+.profile_below a:hover {
+    color: black;
+}
+
+.profile_show {
+    display: block;
 }
