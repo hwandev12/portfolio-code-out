@@ -2,20 +2,70 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-<div class="main-stats">
-    <div class="stats">
-    	<p>Total Users:</p>
-    	<h1>{{ users }}</h1>
+<div class="container">
+    <div class="heading">
+        <h1>Main stats:</h1>
+    </div>
+    <div class="main-stats">
+        <div class="stats">
+            <p>Total Users:</p>
+            <h1>{{ users }}</h1>
+        </div>
+        <!-- <hr> -->
+        <div class="stats">
+            <p>Total Posts:</p>
+            <h1>{{ posts }}</h1>
+        </div>
+        <!-- <hr> -->
+        <div class="stats">
+            <p>Total messages:</p>
+            <h1>{{ contact }}</h1>
+        </div>
     </div>
     <hr>
-    <div class="stats">
-    	<p>Total Posts:</p>
-    	<h1>{{ posts }}</h1>
-    </div>
-    <hr>
-    <div class="stats">
-    	<p>Total Unviewed posts:</p>
-    	<h1>{{ contact }}</h1>
-    </div>
 </div>
+<!-- All users section -->
+<section class="users">
+    <h2>Users:</h2>
+    <hr>
+    <div class="users_section">
+        <a class="btn btn-primary" href="#">Create User</a>
+        <table>
+            <tr class="bordered">
+                <th>Users</th>
+                <th>Email</th>
+                <th></th>
+                <hr>
+            </tr>
+            {% for all in all_users %}
+            <tr>
+                <td>{{ all.username }}</td>
+                <td>{{ all.email }}</td>
+                <td><a class="btn btn-info" href="#">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+<!-- Customers section -->
+<section class="customers">
+    <h2>Customers:</h2>
+    <hr>
+    <div class="customers_section">
+        <a class="btn btn-primary" href="#">Create Customer</a>
+        <table>
+            <tr class="bordered">
+                <th>Customer</th>
+                <th>Email</th>
+                <th></th>
+                <hr>
+            </tr>
+            <tr>
+                <td>Ahmedov</td>
+                <td>husanboy0250@gmail.com</td>
+                <td><a style="display: inline; margin-right: 5px;" class="btn btn-info" href="#">View</a><a style="display: inline;" class="btn btn-danger" href="#">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</section>
 {% endblock content %}

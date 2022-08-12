@@ -57,14 +57,17 @@
                 <li class="nav-item">
                     <a class="nav-link" id="pop_link" href="#">Logout</a>
                 </li>
+                {% if request.user.is_organiser %}
+                <li class="nav-item">
+                    <a class="nav-link" id="pop_link" href="{% url 'dashboard:dashboard_home' %}">Dashboard</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" id="img_profile" href="#"><img style="margin-left: 30px" src="{{ user.profile.image.url }}" alt="" width="30"></a>
                 </li>
                 {% endif %}
             </ul>
-
         </div>
-
     </div>
 </nav>
 <script>

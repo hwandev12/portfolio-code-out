@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    is_organiser = models.BooleanField(default=False)
+    is_agent = models.BooleanField(default=False)
 
 
 # Basic home headers
