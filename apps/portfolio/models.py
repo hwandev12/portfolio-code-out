@@ -5,6 +5,10 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_organiser = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)
+    username = None
+    email = models.EmailField(unique=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
 
 # Basic home headers

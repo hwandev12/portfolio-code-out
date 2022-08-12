@@ -10,7 +10,7 @@ def signup(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            user = form.cleaned_data.get('username')
+            user = form.cleaned_data.get('first_name')
             messages.success(request, "Account was created for " + user)
             return redirect("/login/")
     return render(request, 'registration/signup.html', {"form": form})
