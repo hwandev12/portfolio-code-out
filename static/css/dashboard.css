@@ -77,6 +77,12 @@
 
 .stats:nth-child(3) {
     background-color: rgba(7, 129, 163, 0.7) !important;
+}.stats:nth-child(4) {
+    background-color: rgba(7, 129, 56, 0.7) !important;
+}.stats:nth-child(5) {
+    background-color: rgba(7, 95, 83, 0.7) !important;
+}.stats:nth-child(6) {
+    background-color: rgba(7, 160, 90, 0.7) !important;
 }
 
 /*Users sections*/

@@ -1,0 +1,34 @@
+{% extends 'dashboard/pages/base.html' %}
+{% block title %}create user{% endblock title %}
+{% block content %}
+<form method="post" style="width: 50%; margin-left: auto; margin-right: auto; margin-top: 30px;">
+    {% load widget_tweaks %}
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        {% render_field form.first_name type="text" class="form-control" placeholder="First Name" %}
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputlast" class="form-label">Last name</label>
+        {% render_field form.last_name type="text" class="form-control" placeholder="Last Name" %}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputlast" class="form-label">Email</label>
+        {% render_field form.email type="email" class="form-control" placeholder="Email" %}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        {% render_field form.password1 type="password" class="form-control" placeholder="Password" %}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+        {% render_field form.password2 type="password" class="form-control" placeholder="Confirm password" %}
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
