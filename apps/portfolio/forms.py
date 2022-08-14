@@ -13,4 +13,5 @@ class ContactUsModelForm(forms.ModelForm):
             "your_name",
             "email",
             "message",
+            "category"
         )

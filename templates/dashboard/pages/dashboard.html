@@ -1,6 +1,7 @@
 {% extends 'dashboard/pages/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 <div class="container">
     <div class="heading">
@@ -25,27 +26,52 @@
     <hr>
 </div>
 <!-- All users section -->
-<section class="users">
-    <h2>Users:</h2>
-    <hr>
-    <div class="users_section">
-        <a class="btn btn-primary" href="#">Create User</a>
-        <table>
-            <tr class="bordered">
-                <th>Users</th>
-                <th>Email</th>
-                <th></th>
-                <hr>
-            </tr>
-            {% for all in all_users %}
-            <tr>
-                <td>{{ all.first_name }}</td>
-                <td>{{ all.email }}</td>
-                <td><a class="btn btn-info" href="#">View</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
+<section class="first_line">
+    <section class="users">
+        <h2>Users:</h2>
+        <hr>
+        <div class="users_section">
+            <a class="btn btn-primary" href="#">Create User</a>
+            <table>
+                <tr class="bordered">
+                    <th>Users</th>
+                    <th>Email</th>
+                    <th></th>
+                    <hr>
+                </tr>
+                {% for all in all_users %}
+                <tr>
+                    <td>{{ all.first_name }}</td>
+                    <td>{{ all.email }}</td>
+                    <td><a class="btn btn-info" href="#">View</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+    <!-- Messages section -->
+    <section class="messages">
+        <h2>Messages:</h2>
+        <hr>
+        <div class="messages_section">
+            <a class="btn btn-primary" href="#">Apply Message</a>
+            <table>
+                <tr class="bordered">
+                    <th>Users</th>
+                    <th>Type</th>
+                    <th></th>
+                    <hr>
+                </tr>
+                {% for y in contact_objects %}
+                <tr class="contact_objects">
+                    <td>{{ y.your_name }}</td>
+                    <td class="category_contact">{{ y.category }}<i class="fa-solid fa-key"></i></td>
+                    <td><a class="btn btn-info" href="#">View</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
 </section>
 <!-- Customers section -->
 <section class="customers">
@@ -68,4 +94,5 @@
         </table>
     </div>
 </section>
+
 {% endblock content %}

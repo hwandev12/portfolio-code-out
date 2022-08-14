@@ -71,6 +71,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+# contact category
+class Contact_category(models.Model):
+    class Meta:
+        verbose_name = "Contact Category"
+        verbose_name_plural = "Category Contact"
+
+    name = models.CharField(max_length=70) 
+
+    def __str__(self):
+        return self.name
 
 # create contact us model
 class Contact(models.Model):
@@ -81,6 +91,7 @@ class Contact(models.Model):
     your_name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField(max_length=600)
+    category = models.ForeignKey(Contact_category, null=True, default=None, on_delete=models.CASCADE, related_name="category_contact")
 
     def __str__(self):
         return self.your_name
