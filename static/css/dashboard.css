@@ -111,7 +111,11 @@ a {
 .users_section a {
     display: inline-block;
     text-align: center;
-    width: 100%;
+    width: 47% !important;
+}
+.users_link {
+    display: flex;
+    justify-content: space-between;
 }
 
 .users table {

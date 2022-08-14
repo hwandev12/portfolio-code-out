@@ -12,7 +12,7 @@ def dashboard(request):
     posts = Post.objects.count()
     contact = Contact.objects.count()
     contact_objects = Contact.objects.all()
-    all_users = Users.objects.all()
+    all_users = Users.objects.all().order_by('id')[:10]
     complaints = Contact.objects.filter(category__name='Shikoyat').count()
     offers = Contact.objects.filter(category__name='Taklif').count()
     context = {

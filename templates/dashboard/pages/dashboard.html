@@ -43,7 +43,10 @@
         <h2>Users:</h2>
         <hr>
         <div class="users_section">
-            <a class="btn btn-primary" href="{% url 'dashboard:create_user' %}">Create User</a>
+            <div class="users_link">
+                <a class="btn btn-primary" href="{% url 'dashboard:create_user' %}">Create User</a>
+                <a class="btn btn-info" href="{% url 'dashboard:create_user' %}">All Users</a>
+            </div>
             <table>
                 <tr class="bordered">
                     <th>Users</th>
@@ -106,5 +109,4 @@
         </table>
     </div>
 </section>
-
 {% endblock content %}
