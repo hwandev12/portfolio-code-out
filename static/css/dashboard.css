@@ -23,12 +23,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 30px;
 }
 
 .stats {
     position: relative;
-    width: 600px;
+    width: 350px;
     height: 150px;
     background-color: skyblue;
     box-shadow: 3px 3px 10px #444;
@@ -36,6 +37,7 @@
     transition: 500ms all ease;
     border-radius: 3px;
     margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .stats:hover {
@@ -124,8 +126,6 @@ td {
     font-family: 'Mulish', sans-serif;
     margin-top: 30px !important;
     margin-bottom: 30px !important;
-    position: relative;
-    left: 30px;
 }
 
 .customers td,
