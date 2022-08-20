@@ -232,6 +232,7 @@ header {
         transition: 0.1s all ease;
     }
 }
+
 .profile_tab {
     position: absolute;
     top: 60px;
@@ -299,6 +300,38 @@ header {
 
 .profile_show {
     display: block;
+}
+
+.beta {
+    position: absolute;
+    top: 90px;
+    left: -80px;
+    width: 400px;
+    height: 50px;
+    background-color: green;
+    transform: rotate(-45deg);
+    text-align: center;
+    color: white;
+    font-size: 15px !important;
+    padding-top: 5px;
+}
+
+.beta h3 {
+    display: inline-block;
+    animation: anima 10s infinite forwards;
+}
+.beta h3:nth-child(1) {
+    /*color: blue;*/
+    animation-delay: 0.2s;
+}
+
+@keyframes anima {
+    from {
+        transform: translateX(-360px);
+    }
+    to {
+        transform: translateX(400px);
+    }
 }
 
 @media (max-width: 992px) {
