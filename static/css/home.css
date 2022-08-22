@@ -305,8 +305,8 @@ header {
 .beta {
     position: absolute;
     top: 90px;
-    left: -80px;
-    width: 400px;
+    left: -7860px;
+    width: 16000px;
     height: 50px;
     background-color: green;
     transform: rotate(-45deg);
@@ -318,19 +318,15 @@ header {
 
 .beta h3 {
     display: inline-block;
-    animation: anima 10s infinite forwards;
-}
-.beta h3:nth-child(1) {
-    /*color: blue;*/
-    animation-delay: 0.2s;
+    animation: anima 300s infinite forwards;
 }
 
 @keyframes anima {
     from {
-        transform: translateX(-360px);
+        transform: translateX(-7500px);
     }
     to {
-        transform: translateX(400px);
+        transform: translateX(16000px);
     }
 }
 
