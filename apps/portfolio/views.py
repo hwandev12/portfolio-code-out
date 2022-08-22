@@ -2,6 +2,49 @@ from django.shortcuts import redirect, render
 from . import models
 from .forms import ContactUsModelForm
 
+# rest frameworks
+from rest_framework import viewsets
+from .serializers import ContactSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework import generics
+
+
+# class ContactListCreateApiView(generics.ListCreateAPIView):
+#     queryset = models.Contact.objects.all()     
+#     serializer_class = ContactSerializer
+
+#     def create_list(self, serializer):
+#         your_name = serializer.validated_data.get("your_name")
+#         last_name = serializer.validated_data.get("last_name")
+#         message = serializer.validated_data.get("message") or None
+
+#         if message is None:
+#             message = your_name
+#         # serializer.save(message=message)
+
+# contact_list_create_view = ContactListCreateApiView.as_view()
+
+
+
+
+
+# API userset
+@api_view(["GET"])
+def contact_api(request):
+    api_urls = {
+        "List": "/contact-list/",
+        "Detail View": "/contact-detail/<str:pk>/",
+        "Create": "/contact-create/",
+        "Update": "/contact-update/<str:pk>/",
+        "Delete": "/contact-delete/<str:pk>",
+    }
+
+    return Response(api_urls)
+
+
+
 
 def home(request):
     homeContents = models.Home.objects.all()
