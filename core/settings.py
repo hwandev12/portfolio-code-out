@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     'rest_framework',
+    "apps.portfolio_api"
 ]
 
 MIDDLEWARE = [

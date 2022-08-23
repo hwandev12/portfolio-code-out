@@ -82,16 +82,27 @@ class Contact_category(models.Model):
     def __str__(self):
         return self.name
 
+
+
 # create contact us model
 class Contact(models.Model):
     class Meta:
         verbose_name = "Contact"
         verbose_name_plural = "Contact Us"
 
+    TAKLIF = "TK"
+    SHIKOYAT = "SK"
+
+    CONTACT_CHOICES = [
+        (TAKLIF, "Taklif"),
+        (SHIKOYAT, "Shikoyat")
+    ]
+
     your_name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField(max_length=600)
     category = models.ForeignKey(Contact_category, null=True, default=None, on_delete=models.CASCADE, related_name="category_contact")
+    contact_choices = models.CharField(max_length=2, choices=CONTACT_CHOICES, default=TAKLIF)
 
     def __str__(self):
         return self.your_name
