@@ -5,10 +5,10 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_organiser = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)
-    username = None
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
+    username = None
 
 
 # Basic home headers
@@ -72,15 +72,15 @@ class Category(models.Model):
         return self.name
 
 # contact category
-class Contact_category(models.Model):
-    class Meta:
-        verbose_name = "Contact Category"
-        verbose_name_plural = "Category Contact"
+# class Contact_category(models.Model):
+#     class Meta:
+#         verbose_name = "Contact Category"
+#         verbose_name_plural = "Category Contact"
 
-    name = models.CharField(max_length=70) 
+#     name = models.CharField(max_length=70) 
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
 
@@ -90,8 +90,9 @@ class Contact(models.Model):
         verbose_name = "Contact"
         verbose_name_plural = "Contact Us"
 
-    TAKLIF = "TK"
-    SHIKOYAT = "SK"
+    
+    TAKLIF = "TAKLIF"
+    SHIKOYAT = "SHIKOYAT"
 
     CONTACT_CHOICES = [
         (TAKLIF, "Taklif"),
@@ -101,8 +102,8 @@ class Contact(models.Model):
     your_name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField(max_length=600)
-    category = models.ForeignKey(Contact_category, null=True, default=None, on_delete=models.CASCADE, related_name="category_contact")
-    contact_choices = models.CharField(max_length=2, choices=CONTACT_CHOICES, default=TAKLIF)
+    # category = models.ForeignKey(Contact_category, null=True, default=None, on_delete=models.CASCADE, related_name="category_contact")
+    contact_choices = models.CharField(max_length=10, choices=CONTACT_CHOICES, default=TAKLIF)
 
     def __str__(self):
         return self.your_name

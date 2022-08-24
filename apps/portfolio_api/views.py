@@ -31,7 +31,6 @@ def contactList(request):
     return Response(serializer.data)
 
 
-
 @api_view(["GET"])
 def contactDetail(request, pk):
     contact = models.Contact.objects.get(id=pk)
@@ -65,3 +64,11 @@ def contactDelete(request, pk):
 	contact.delete()
 
 	return Response("API successfully deleted!")
+
+# filter api contacts
+class ContactFilter(generics.ListAPIView):
+	serializer_class = ContactSerializer
+
+	def get_queryset(self):
+		choices = self.kwargs['contact_choices']
+		return models.Contact.objects.filter(contact_choices=choices)

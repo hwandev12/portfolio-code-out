@@ -8,4 +8,5 @@ urlpatterns = [
     path('contact-create/', views.contactCreate),
     path('contact-update/', views.contactUpdate),
     path('contact-delete/<str:pk>/', views.contactDelete),
+    path('contact-filter/', views.ContactFilter.as_view()),
 ]
