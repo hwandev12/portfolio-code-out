@@ -6,7 +6,12 @@ urlpatterns = [
     path('contact-list/', views.contactList),
     path('contact-detail/<str:pk>/', views.contactDetail),
     path('contact-create/', views.contactCreate),
+    # contact taklif
+    path('contact-taklif/', views.contactTaklifAPI),
+    # contact shikoyat
+    path('contact-shikoyat/', views.contactShikoyatAPI),
+    path('contact-search/', views.contactSearch),
+    path('contact-order/', views.contactOrder),
     path('contact-update/', views.contactUpdate),
     path('contact-delete/<str:pk>/', views.contactDelete),
-    path('contact-filter/', views.ContactFilter.as_view()),
 ]

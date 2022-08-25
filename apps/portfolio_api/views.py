@@ -2,10 +2,9 @@ from django.shortcuts import render
 from apps.portfolio import models
 
 # rest frameworks
-from rest_framework import viewsets
+from rest_framework import filters
 from .serializers import ContactSerializer
 from rest_framework.response import Response
-from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework import generics
 
@@ -19,6 +18,10 @@ def contact_api(request):
         "Create": "/contact-create/",
         "Update": "/contact-update/<str:pk>/",
         "Delete": "/contact-delete/<str:pk>",
+        "Taklif Filter": "/contact-taklif/",
+        "Shikoyat Filter": "/contact-shikoyat/",
+        "Search API": "/contact-search/",
+        "Order API": "/contact-order/",
     }
 
     return Response(api_urls)
@@ -65,10 +68,34 @@ def contactDelete(request, pk):
 
 	return Response("API successfully deleted!")
 
-# filter api contacts
-class ContactFilter(generics.ListAPIView):
-	serializer_class = ContactSerializer
+# contact TAKLIF filter API
+@api_view(["GET"])
+def contactTaklifAPI(request):
+    contact =  models.Contact.objects.filter(contact_choices="TAKLIF")
+    serializer = ContactSerializer(contact, many=True)
+    return Response(serializer.data)
 
-	def get_queryset(self):
-		choices = self.kwargs['contact_choices']
-		return models.Contact.objects.filter(contact_choices=choices)
+# contact SHIKOYAT filter API
+@api_view(["GET"])
+def contactShikoyatAPI(request):
+    contact =  models.Contact.objects.filter(contact_choices="SHIKOYAT")
+    serializer = ContactSerializer(contact, many=True)
+    return Response(serializer.data)
+
+
+# Search contacts
+class ContactSearchAPI(generics.ListAPIView):
+    queryset = models.Contact.objects.all()
+    serializer_class = ContactSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['your_name', 'email', 'contact_choices']
+
+contactSearch = ContactSearchAPI.as_view()
+
+class ContactOrderAPI(generics.ListAPIView):
+    queryset = models.Contact.objects.all()
+    serializer_class = ContactSerializer
+    filter_backends = [filters.OrderingFilter]
+    search_fields = '__all__'
+
+contactOrder = ContactOrderAPI.as_view()
