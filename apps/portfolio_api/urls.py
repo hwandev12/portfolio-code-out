@@ -14,4 +14,5 @@ urlpatterns = [
     path('contact-order/', views.contactOrder),
     path('contact-update/', views.contactUpdate),
     path('contact-delete/<str:pk>/', views.contactDelete),
+    # path('pagina/', views.some),
 ]

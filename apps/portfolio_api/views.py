@@ -5,12 +5,21 @@ from apps.portfolio import models
 from rest_framework import filters
 from .serializers import ContactSerializer
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import generics
+from rest_framework import permissions
+from rest_framework.pagination import PageNumberPagination
+from rest_framework import viewsets
 
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
 
 # API userset
 @api_view(["GET"])
+@permission_classes((permissions.AllowAny,))
 def contact_api(request):
     api_urls = {
         "List": "/contact-list/",
@@ -28,6 +37,7 @@ def contact_api(request):
 
 
 @api_view(["GET"])
+@permission_classes((permissions.AllowAny,))
 def contactList(request):
     contact = models.Contact.objects.all()
     serializer = ContactSerializer(contact, many=True)
@@ -35,6 +45,7 @@ def contactList(request):
 
 
 @api_view(["GET"])
+@permission_classes((permissions.AllowAny,))
 def contactDetail(request, pk):
     contact = models.Contact.objects.get(id=pk)
     serializer = ContactSerializer(contact, many=False)
@@ -42,6 +53,7 @@ def contactDetail(request, pk):
 
 
 @api_view(["POST"])
+@permission_classes((permissions.AllowAny,))
 def contactCreate(request):
 	serializer = ContactSerializer(data=request.data)
 
@@ -51,6 +63,7 @@ def contactCreate(request):
 	return Response(serializer.data)
 
 @api_view(["POST"])
+@permission_classes((permissions.AllowAny,))
 def contactUpdate(request, pk):
 	contact = models.Contact.objects.get(id=pk)
 	serializer = ContactSerializer(instance=contact, data=request.data)
@@ -62,6 +75,7 @@ def contactUpdate(request, pk):
 
 
 @api_view(["DELETE"])
+@permission_classes((permissions.AllowAny,))
 def contactDelete(request, pk):
 	contact = models.Contact.objects.get(id=pk)
 	contact.delete()
@@ -70,6 +84,7 @@ def contactDelete(request, pk):
 
 # contact TAKLIF filter API
 @api_view(["GET"])
+@permission_classes((permissions.AllowAny,))
 def contactTaklifAPI(request):
     contact =  models.Contact.objects.filter(contact_choices="TAKLIF")
     serializer = ContactSerializer(contact, many=True)
@@ -77,11 +92,11 @@ def contactTaklifAPI(request):
 
 # contact SHIKOYAT filter API
 @api_view(["GET"])
+@permission_classes((permissions.AllowAny,))
 def contactShikoyatAPI(request):
     contact =  models.Contact.objects.filter(contact_choices="SHIKOYAT")
     serializer = ContactSerializer(contact, many=True)
     return Response(serializer.data)
-
 
 # Search contacts
 class ContactSearchAPI(generics.ListAPIView):
@@ -99,3 +114,14 @@ class ContactOrderAPI(generics.ListAPIView):
     search_fields = '__all__'
 
 contactOrder = ContactOrderAPI.as_view()
+
+
+# class UserViewSet(viewsets.ViewSet):
+#     def list(self, request):
+#         queryset = models.Contact.objects.all()
+#         pagination = PageNumberPagination()
+#         qs = pagination.paginate_queryset(queryset, request)
+#         serializer = ContactSerializer(qs, many=True)
+#         return pagination.get_paginated_response(serializer.data)
+
+# some = UserViewSet.as_view()
