@@ -104,6 +104,7 @@ class Contact(models.Model):
     message = models.TextField(max_length=600)
     # category = models.ForeignKey(Contact_category, null=True, default=None, on_delete=models.CASCADE, related_name="category_contact")
     contact_choices = models.CharField(max_length=10, choices=CONTACT_CHOICES, default=TAKLIF)
+    created_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.your_name
