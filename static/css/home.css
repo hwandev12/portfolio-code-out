@@ -61,11 +61,6 @@ body {
     }
 }
 
-.loader {
-    position: relative;
-    top: 0% !important;
-    z-index: 10 !important;
-}
 
 .child {
     position: absolute;
@@ -83,10 +78,6 @@ body {
         position: absolute;
         top: 50%;
     }
-}
-
-.mariana {
-    display: none !important;
 }
 
 .content {
@@ -335,3 +326,4 @@ header {
         opacity: 0 !important;
     }
 }
+

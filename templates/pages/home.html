@@ -2,12 +2,11 @@
 {% block content %} {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <main id="main_home">
-    <div class="d-flex justify-content-center align-items-center loader">
-        <div class="prifix_loading_box child"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
-    </div>
+    
     <!-- Page Header-->
     {% for y in homeContents %}
     <header class="masthead" style="background-image: url({{ y.blog_headingImage.url }});">
+        {% include 'includes/loader.html' %}
         <div class="profile_tab">
             <div class="profile_nav">
                 <p>Campus</p>
@@ -79,12 +78,5 @@
         </div>
     </div>
     <script src="{% static 'js/home.js' %}"></script>
-    <script>
-    let loader = document.querySelector(".loader")
-    window.addEventListener("load", () => {
-        loader.classList.add("mariana")
-        document.body.classList.add("overflow")
-    })
-    </script>
 </main>
 {% endblock content %}
