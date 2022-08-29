@@ -134,9 +134,6 @@ STATICFILES_DIRS = (
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
-
 LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'portfolio.User'
@@ -157,3 +154,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100
 }
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIAUNVX4B4CMLL2DCGU'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'digestblog-static'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+

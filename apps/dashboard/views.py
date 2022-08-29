@@ -13,8 +13,8 @@ def dashboard(request):
     contact = Contact.objects.count()
     contact_objects = Contact.objects.all()
     all_users = Users.objects.all().order_by('id')[:10]
-    complaints = Contact.objects.filter(category__name='Shikoyat').count()
-    offers = Contact.objects.filter(category__name='Taklif').count()
+    complaints = Contact.objects.filter(contact_choices='SHIKOYAT').count()
+    offers = Contact.objects.filter(contact_choices='TAKLIF').count()
     context = {
         "users": users,
         "posts": posts,
@@ -25,6 +25,7 @@ def dashboard(request):
         "offers": offers
     }
     return render(request, 'dashboard/pages/dashboard.html', context)
+
 
 # create user
 def create_user(request):

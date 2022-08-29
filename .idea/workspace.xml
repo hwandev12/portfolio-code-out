@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6544a9d7-19d5-48d1-8953-f881a1040a2f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/portfolio-code-out.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/dashboard/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portfolio/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portfolio_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portfolio_api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portfolio_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portfolio_api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portfolio_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portfolio_api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,7 @@
       <updated>1661597903175</updated>
       <workItem from="1661597905766" duration="3479000" />
       <workItem from="1661682704194" duration="1117000" />
-      <workItem from="1661754940965" duration="685000" />
+      <workItem from="1661754940965" duration="5414000" />
     </task>
     <servers />
   </component>
